@@ -5,5 +5,5 @@
 #define QUICK_TAP_TERM 0
 
 //Combo stuff
-#define COMBO_COUNT 17
+#define COMBO_COUNT 18
 
