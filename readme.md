@@ -7,4 +7,4 @@ https://github.com/GalileoBlues/Recurva?tab=readme-ov-file#variations
 
 ## Layout
 
-![alt text](https://github.com/aodh66/qmk-sweep/blob/main/images/my_keymap.png?raw=true)
+![alt text](https://github.com/aodh66/qmk-sweep/blob/main/images/my_keymap.svg?raw=true)
