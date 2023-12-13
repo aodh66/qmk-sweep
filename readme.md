@@ -1,6 +1,6 @@
 # Current keymap for Ferris Sweep Half-Swept
 
-## Recurva
+## Recurva (Colstag)
 https://github.com/GalileoBlues/Recurva?tab=readme-ov-file#variations
 
 ![alt text](https://github.com/aodh66/qmk-sweep/blob/main/images/Recurva.png?raw=true)
