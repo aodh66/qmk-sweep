@@ -156,41 +156,48 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		SS_QU		, KC_W		  , KC_F		, KC_P		  , KC_B	  	 , 			KC_J   		 , KC_L		   , KC_U   	 , KC_Y  	   , KC_QUOT	 , 
 		LGUI_T(KC_A), LALT_T(KC_R), LSFT_T(KC_S), LCTL_T(KC_T), KC_G	  	 , 			KC_M   		 , RCTL_T(KC_N), RSFT_T(KC_E), LALT_T(KC_I), RGUI_T(KC_O), 
 		KC_Z		, KC_X		  , KC_C		, KC_D		  , KC_V	  	 , 			KC_K   		 , KC_H		   , KC_COMM	 , KC_DOT	   , KC_SLSH	 , 
-			   								   	  MO(2)		  , LT(4, KC_SPC), 			LCTL(KC_BSPC), MO(3))	   ,
+			   								   	  MO(3)		  , LT(5, KC_SPC), 			LCTL(KC_BSPC), MO(4))	   ,
 
 	//Base (Recurva)
 	[1] = LAYOUT_split_3x5_2(
 		KC_F		, KC_R		  , KC_D		, KC_P		  , KC_V	  	 , 			SS_QU  		 , KC_M		   , KC_U   	 , KC_O  	   , KC_Y		 , 
 		LGUI_T(KC_S), LALT_T(KC_N), LSFT_T(KC_T), LCTL_T(KC_C), KC_B	  	 , 			KC_DOT 		 , RCTL_T(KC_H), RSFT_T(KC_E), LALT_T(KC_A), RGUI_T(KC_I), 
 		KC_Z		, KC_X		  , KC_K		, KC_G		  , KC_W	  	 , 			KC_J   		 , KC_L		   , KC_SLSH	 , KC_QUOT	   , KC_COMM	 , 
-			   								   	  MO(2)		  , LT(4, KC_SPC), 			LCTL(KC_BSPC), MO(3))	   ,
+			   								   	  MO(3)		  , LT(5, KC_SPC), 			LCTL(KC_BSPC), MO(4))	   ,
+
+	//Base (Qwerty to practice Recurva on fngrng)
+	[2] = LAYOUT_split_3x5_2(
+		SS_QU		, KC_W		  , KC_E		, KC_R		  , KC_T	  	 , 			KC_Y  		 , KC_U		   , KC_I   	 , KC_O  	   , KC_P		 , 
+		LGUI_T(KC_A), LALT_T(KC_S), LSFT_T(KC_D), LCTL_T(KC_F), KC_G	  	 , 			KC_H 		 , RCTL_T(KC_J), RSFT_T(KC_K), LALT_T(KC_L), RGUI_T(KC_SCLN), 
+		KC_Z		, KC_X		  , KC_C		, KC_V		  , KC_B	  	 , 			KC_N   		 , KC_M		   , KC_COMM	 , KC_DOT	   , KC_SLSH	 , 
+			   								   	  MO(3)		  , LT(5, KC_SPC), 			LCTL(KC_BSPC), MO(4))	   ,
 	
 	//Nav/Ext
-	[2] = LAYOUT_split_3x5_2(
+	[3] = LAYOUT_split_3x5_2(
 		KC_ESC    	, KC_TAB	  , CW_TOGG     , KC_CAPS     , KC_NO     	 , 			KC_PGUP		 , KC_HOME	   , KC_UP  	 , KC_END 	   , KC_NO 	   	 , 
 		KC_LGUI   	, KC_LALT  	  , KC_LSFT     , KC_LCTL     , KC_NO     	 , 			KC_PGDN		 , KC_LEFT	   , KC_DOWN	 , KC_RGHT	   , KC_DEL	   	 ,
 		LCTL(KC_Z)	, LCTL(KC_X)  , LCTL(KC_C)  , LCTL(KC_V)  , LCTL(KC_F)	 , 			QK_REP		 , KC_TAB 	   , KC_NO  	 , KC_NO  	   , KC_NO 	   	 , 
-												  KC_TRNS	  , KC_NO	 	 , 			KC_BSPC		 , MO(5))	   ,
+												  KC_TRNS	  , KC_NO	 	 , 			KC_BSPC		 , MO(6))	   ,
 	
 	//Symbol
-	[3] = LAYOUT_split_3x5_2(
+	[4] = LAYOUT_split_3x5_2(
 		KC_EXLM		, KC_AT		  , KC_HASH		, KC_DLR 	  , KC_PERC	  	 ,			KC_CIRC		 , KC_AMPR	   , KC_ASTR	 , KC_UNDS	   , KC_SCLN	 , 
 		KC_GRV 		, KC_LT		  , KC_LCBR		, KC_LPRN	  , KC_LBRC	  	 ,			KC_COLN		 , KC_RCTL	   , KC_RSFT	 , KC_RALT	   , KC_RGUI	 , 
 		KC_TILD		, KC_GT		  , KC_RCBR		, KC_RPRN	  , KC_RBRC	  	 , 		 	KC_PIPE		 , KC_MINS	   , KC_EQL 	 , KC_PLUS	   , KC_BSLS	 , 
-												  MO(5)		  , KC_ENT		 , 		 	KC_NO		 , KC_TRNS)	   ,
+												  MO(6)		  , KC_ENT		 , 		 	KC_NO		 , KC_TRNS)	   ,
 	
 	//Numpad
-	[4] = LAYOUT_split_3x5_2(
+	[5] = LAYOUT_split_3x5_2(
 		KC_NO  		, KC_NO  	  , KC_BSPC		, KC_DEL 	  , KC_NO	  	 , 			KC_NO  		 , KC_7		   , KC_8		 , KC_9		   , KC_NO	   	 , 
 		KC_LGUI		, KC_LALT	  , KC_LSFT		, KC_LCTL	  , KC_NO	  	 , 			KC_NO  		 , KC_4		   , KC_5		 , KC_6		   , KC_0 	   	 , 
 		KC_NO  		, KC_NO  	  , KC_NO  		, KC_NO  	  , KC_NO	  	 ,			KC_NO  		 , KC_1		   , KC_2		 , KC_3		   , KC_NO	   	 ,
 								 				  KC_TRNS	  , KC_TRNS	  	 , 			KC_NO  		 , KC_TRNS)	   ,
 	
 	//Function
-	[5] = LAYOUT_split_3x5_2(
+	[6] = LAYOUT_split_3x5_2(
 		TO(0)  		, KC_NO  	  , QK_BOOT		, KC_NO  	  , TG(1)	  	 , 			KC_NO  		 , KC_F7	   , KC_F8	   	 , KC_F9	   , KC_NO 	   	 , 
 		KC_LGUI		, KC_LALT	  , KC_LSFT		, KC_LCTL	  , KC_NO	  	 , 			KC_F12 		 , KC_F4  	   , KC_F5	   	 , KC_F6	   , KC_F10	   	 , 
-		KC_NO  		, KC_NO  	  , KC_NO  		, KC_NO  	  , KC_NO	  	 ,			KC_F11 		 , KC_F1	   , KC_F2	   	 , KC_F3	   , KC_NO 	   	 , 
+		KC_NO  		, KC_NO  	  , KC_NO  		, KC_NO  	  , TG(2)	  	 ,			KC_F11 		 , KC_F1	   , KC_F2	   	 , KC_F3	   , KC_NO 	   	 , 
 							   	   				  KC_TRNS	  , KC_NO		 , 			KC_NO		 , KC_TRNS)	   ,
 };
 
