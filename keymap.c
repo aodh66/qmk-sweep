@@ -215,10 +215,10 @@ const uint16_t PROGMEM combo11[] = {KC_B, KC_DOT, COMBO_END}; // B+. -> Caps Wor
 const uint16_t PROGMEM combo12[] = {KC_L, KC_SLSH, COMBO_END}; // L+/ -> Backspace Bot
 const uint16_t PROGMEM combo13[] = {KC_QUOT, KC_COMM, COMBO_END}; // '+, -> Delete Bot
 
-const uint16_t PROGMEM combo14[] = {SS_QU, KC_DOT, COMBO_END}; // Q+. -> Right Brace [
-const uint16_t PROGMEM combo15[] = {KC_M, HOME_H, COMBO_END}; // M+H -> Right Parenthesis (
-const uint16_t PROGMEM combo16[] = {KC_U, HOME_E, COMBO_END}; // U+E -> Right Curly Brace {
-const uint16_t PROGMEM combo17[] = {KC_O, HOME_A, COMBO_END}; // O+A -> Greater than <
+const uint16_t PROGMEM combo14[] = {SS_QU, KC_DOT, COMBO_END}; // Q+. -> Right Brace ]
+const uint16_t PROGMEM combo15[] = {KC_M, HOME_H, COMBO_END}; // M+H -> Right Parenthesis )
+const uint16_t PROGMEM combo16[] = {KC_U, HOME_E, COMBO_END}; // U+E -> Right Curly Brace }
+const uint16_t PROGMEM combo17[] = {KC_O, HOME_A, COMBO_END}; // O+A -> Greater than >
 const uint16_t PROGMEM combo18[] = {KC_Y, HOME_I, COMBO_END}; // Y+I -> Semicolon ;
 
 // ! CURRENTLY UNUSED
@@ -248,10 +248,10 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo12, KC_BSPC), // L+/ -> Backspace Bot
 	COMBO(combo13, KC_DEL), // '+, -> Delete Bot
 
-    COMBO(combo14, KC_RBRC), // Q+. -> Right Brace [
-    COMBO(combo15, KC_RPRN), // M+H -> Right Parenthesis (
-    COMBO(combo16, KC_RCBR), // U+E -> Right Curly Brace {
-    COMBO(combo17, KC_GT), // O+A -> Greater than <
+    COMBO(combo14, KC_RBRC), // Q+. -> Right Brace ]
+    COMBO(combo15, KC_RPRN), // M+H -> Right Parenthesis )
+    COMBO(combo16, KC_RCBR), // U+E -> Right Curly Brace }
+    COMBO(combo17, KC_GT), // O+A -> Greater than >
     COMBO(combo18, KC_SCLN), // Y+I -> Semicolon ;
 
     // ! CURRENTLY UNUSED
