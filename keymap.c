@@ -161,7 +161,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[1] = LAYOUT_split_3x5_2(
 		KC_ESC    	, KC_TAB	  , CW_TOGG     , KC_CAPS     , KC_NO     	 , 			KC_PGUP		 , KC_HOME	   , KC_UP  	 , KC_END 	   , KC_NO 	   	 , 
 		KC_LGUI   	, KC_LALT  	  , KC_LSFT     , KC_LCTL     , KC_NO     	 , 			KC_PGDN		 , KC_LEFT	   , KC_DOWN	 , KC_RGHT	   , KC_DEL	   	 ,
-		LCTL(KC_Z)	, LCTL(KC_X)  , LCTL(KC_C)  , LCTL(KC_V)  , LCTL(KC_F)	 , 			QK_REP		 , KC_TAB 	   , KC_NO  	 , KC_NO  	   , KC_NO 	   	 , 
+		LCTL(KC_Z)	, LCTL(KC_X)  , LCTL(KC_C)  , LCTL(KC_V)  , LCTL(KC_F)	 , 			KC_NO		 , QK_REP 	   , KC_NO  	 , KC_NO  	   , KC_NO 	   	 , 
 												  KC_TRNS	  , KC_NO	 	 , 			KC_BSPC		 , MO(4))	   ,
 	
 	//Symbol
@@ -173,16 +173,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	
 	//Numpad
 	[3] = LAYOUT_split_3x5_2(
-		KC_NO  		, KC_NO  	  , KC_BSPC		, KC_DEL 	  , KC_NO	  	 , 			KC_NO  		 , KC_7		   , KC_8		 , KC_9		   , KC_NO	   	 , 
-		KC_LGUI		, KC_LALT	  , KC_LSFT		, KC_LCTL	  , KC_NO	  	 , 			KC_NO  		 , KC_4		   , KC_5		 , KC_6		   , KC_0 	   	 , 
-		KC_NO  		, KC_NO  	  , KC_NO  		, KC_NO  	  , KC_NO	  	 ,			KC_NO  		 , KC_1		   , KC_2		 , KC_3		   , KC_NO	   	 ,
+		KC_1  		, KC_2  	  , KC_3		, KC_4  	  , KC_5	  	 , 			KC_6  		 , KC_7		   , KC_8		 , KC_9		   , KC_0	   	 , 
+		KC_LGUI		, KC_LALT	  , KC_LSFT		, KC_LCTL	  , KC_NO	  	 , 			KC_DOT  	 , KC_4		   , KC_5		 , KC_6		   , KC_0 	   	 , 
+		KC_NO  		, KC_NO  	  , KC_BSPC  	, KC_DEL  	  , KC_NO	  	 ,			KC_NO  		 , KC_1		   , KC_2		 , KC_3		   , KC_NO	   	 ,
 								 				  KC_NO       , KC_TRNS	  	 , 			KC_NO  		 , KC_NO)	   ,
 	
 	//Function
 	[4] = LAYOUT_split_3x5_2(
 		KC_NO  		, KC_NO  	  , QK_BOOT		, KC_NO  	  , KC_VOLU	  	 , 			KC_NO  		 , KC_F7	   , KC_F8	   	 , KC_F9	   , KC_NO 	   	 , 
 		KC_LGUI		, KC_LALT	  , KC_LSFT		, KC_LCTL	  , KC_VOLD	  	 , 			KC_F12 		 , KC_F4  	   , KC_F5	   	 , KC_F6	   , KC_F10	   	 , 
-		KC_NO  		, KC_NO  	  , KC_NO  		, KC_NO  	  , KC_NO	  	 ,			KC_F11 		 , KC_F1	   , KC_F2	   	 , KC_F3	   , KC_NO 	   	 , 
+		KC_NO  		, KC_NO  	  , KC_NO  		, KC_MPLY  	  , KC_NO	  	 ,			KC_F11 		 , KC_F1	   , KC_F2	   	 , KC_F3	   , KC_NO 	   	 , 
 							   	   				  KC_TRNS	  , KC_NO		 , 			KC_NO		 , KC_TRNS)	   ,
 };
 
