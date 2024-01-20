@@ -150,7 +150,7 @@ bool achordion_eager_mod(uint8_t mod) {
 
 //* Layout
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-	//Base (Recurva)
+	//Base (Recurva Colstag W-V Swap)
 	[0] = LAYOUT_split_3x5_2(
 		KC_F		, KC_R		  , KC_D		, KC_P		  , KC_V	  	 , 			SS_QU  		 , KC_M		   , KC_U   	 , KC_O  	   , KC_Y		 , 
 		HOME_S      , HOME_N      , HOME_T      , HOME_C      , KC_B	  	 , 			KC_DOT 		 , HOME_H      , HOME_E      , HOME_A      , HOME_I      , 
@@ -159,8 +159,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 	//Nav/Ext
 	[1] = LAYOUT_split_3x5_2(
-		KC_ESC    	, KC_TAB	  , CW_TOGG     , KC_CAPS     , KC_NO     	 , 			KC_PGUP		 , KC_HOME	   , KC_UP  	 , KC_END 	   , KC_NO 	   	 , 
-		KC_LGUI   	, KC_LALT  	  , KC_LSFT     , KC_LCTL     , KC_NO     	 , 			KC_PGDN		 , KC_LEFT	   , KC_DOWN	 , KC_RGHT	   , KC_DEL	   	 ,
+		KC_ESC    	, KC_TAB	  , CW_TOGG     , KC_CAPS     , KC_NO     	 , 			KC_PGUP		 , KC_HOME	   , KC_END  	 , KC_END 	   , KC_DEL 	   	 , 
+		KC_LGUI   	, KC_LALT  	  , KC_LSFT     , KC_LCTL     , KC_NO     	 , 			KC_PGDN		 , KC_LEFT	   , KC_DOWN	 , KC_UP	   , KC_RGHT	   	 ,
 		LCTL(KC_Z)	, LCTL(KC_X)  , LCTL(KC_C)  , LCTL(KC_V)  , LCTL(KC_F)	 , 			KC_NO		 , QK_REP 	   , KC_NO  	 , KC_NO  	   , KC_NO 	   	 , 
 												  KC_TRNS	  , KC_NO	 	 , 			KC_BSPC		 , MO(4))	   ,
 	
@@ -176,7 +176,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		KC_1  		, KC_2  	  , KC_3		, KC_4  	  , KC_5	  	 , 			KC_6  		 , KC_7		   , KC_8		 , KC_9		   , KC_0	   	 , 
 		KC_LGUI		, KC_LALT	  , KC_LSFT		, KC_LCTL	  , KC_NO	  	 , 			KC_DOT  	 , KC_4		   , KC_5		 , KC_6		   , KC_0 	   	 , 
 		KC_NO  		, KC_NO  	  , KC_BSPC  	, KC_DEL  	  , KC_NO	  	 ,			KC_NO  		 , KC_1		   , KC_2		 , KC_3		   , KC_NO	   	 ,
-								 				  KC_NO       , KC_TRNS	  	 , 			KC_NO  		 , KC_NO)	   ,
+								 				  KC_NO       , KC_TRNS	  	 , 			KC_BSPC  	 , KC_DEL)	   ,
 	
 	//Function
 	[4] = LAYOUT_split_3x5_2(
@@ -190,7 +190,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Left Hand
 const uint16_t PROGMEM combo1[] = {SS_QU, KC_U, COMBO_END}; // Q+U -> Q
 
-const uint16_t PROGMEM combo2[]  = {KC_R, KC_D, COMBO_END}; // R+D -> ESC
+const uint16_t PROGMEM combo2[]  = {KC_K, KC_G, COMBO_END}; // K+G -> ESC
 const uint16_t PROGMEM combo3[]  = {KC_X, KC_K, COMBO_END}; // X+K -> Tab
 
 const uint16_t PROGMEM combo4[] = {KC_F, HOME_S, COMBO_END}; // F+S -> Grave `
@@ -205,8 +205,8 @@ const uint16_t PROGMEM combo9[]  = {KC_G, LCTL(KC_BSPC), COMBO_END}; // Ctrl+Bks
 const uint16_t PROGMEM combo10[] = {KC_SLSH, KC_QUOT, COMBO_END}; // /+' -> Enter
 const uint16_t PROGMEM combo11[] = {KC_B, KC_DOT, COMBO_END}; // B+. -> Caps Word
 
-const uint16_t PROGMEM combo12[] = {KC_L, KC_SLSH, COMBO_END}; // L+/ -> Backspace Bot
-const uint16_t PROGMEM combo13[] = {KC_QUOT, KC_COMM, COMBO_END}; // '+, -> Delete Bot
+const uint16_t PROGMEM combo12[] = {KC_L, KC_SLSH, COMBO_END}; // L+/ -> Delete Bot
+// const uint16_t PROGMEM combo13[] = {KC_QUOT, KC_COMM, COMBO_END}; // '+, -> Delete Bot
 
 const uint16_t PROGMEM combo14[] = {SS_QU, KC_DOT, COMBO_END}; // Q+. -> Right Brace ]
 const uint16_t PROGMEM combo15[] = {KC_M, HOME_H, COMBO_END}; // M+H -> Right Parenthesis )
@@ -223,7 +223,7 @@ combo_t key_combos[COMBO_COUNT] = {
     // Left Hand
     COMBO(combo1, KC_Q), // Q+U -> Q
 
-    COMBO(combo2, KC_ESC), // R+D -> ESC
+    COMBO(combo2, KC_ESC), // K+G -> ESC
     COMBO(combo3, KC_TAB), // X+K -> Tab
 
     COMBO(combo4, KC_GRV), // F+S -> Grave `
@@ -238,8 +238,8 @@ combo_t key_combos[COMBO_COUNT] = {
 	COMBO(combo10, KC_ENT), // /+' -> Enter
 	COMBO(combo11, CW_TOGG), // B+. -> Caps Word
 
-    COMBO(combo12, KC_BSPC), // L+/ -> Backspace Bot
-	COMBO(combo13, KC_DEL), // '+, -> Delete Bot
+    COMBO(combo12, KC_DEL), // L+/ -> Delete Bot
+	// COMBO(combo13, KC_DEL), // '+, -> Delete Bot
 
     COMBO(combo14, KC_RBRC), // Q+. -> Right Brace ]
     COMBO(combo15, KC_RPRN), // M+H -> Right Parenthesis )
