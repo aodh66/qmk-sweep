@@ -148,9 +148,10 @@ bool achordion_eager_mod(uint8_t mod) {
 // };
 // ! ======================================================================================
 
+
 //* Layout
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-	//Base (Recurva Colstag W-V Swap)
+	//Base (Recurva Colstag)
 	[0] = LAYOUT_split_3x5_2(
 		KC_F		, KC_R		  , KC_D		, KC_P		  , KC_V	  	 , 			SS_QU  		 , KC_M		   , KC_U   	 , KC_O  	   , KC_Y		 , 
 		HOME_S      , HOME_N      , HOME_T      , HOME_C      , KC_B	  	 , 			KC_DOT 		 , HOME_H      , HOME_E      , HOME_A      , HOME_I      , 
@@ -159,9 +160,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 	//Nav/Ext
 	[1] = LAYOUT_split_3x5_2(
-		KC_ESC    	, KC_TAB	  , CW_TOGG     , KC_CAPS     , KC_NO     	 , 			KC_PGUP		 , KC_HOME	   , KC_END  	 , KC_END 	   , KC_DEL 	   	 , 
-		KC_LGUI   	, KC_LALT  	  , KC_LSFT     , KC_LCTL     , KC_NO     	 , 			KC_PGDN		 , KC_LEFT	   , KC_DOWN	 , KC_UP	   , KC_RGHT	   	 ,
-		LCTL(KC_Z)	, LCTL(KC_X)  , LCTL(KC_C)  , LCTL(KC_V)  , LCTL(KC_F)	 , 			KC_NO		 , QK_REP 	   , KC_NO  	 , KC_NO  	   , KC_NO 	   	 , 
+		KC_ESC    	, KC_TAB	  , CW_TOGG     , KC_CAPS     , KC_HYPR      , 			KC_PGUP		 , KC_HOME	   , KC_NO  	 , KC_END 	   , KC_DEL	     , 
+		KC_LGUI   	, KC_LALT  	  , KC_LSFT     , KC_LCTL     , KC_MEH       , 			KC_PGDN		 , KC_LEFT	   , KC_DOWN	 , KC_UP	   , KC_RGHT	 ,
+		LCTL(KC_Z)	, LCTL(KC_X)  , LCTL(KC_C)  , LCTL(KC_V)  , LCTL(KC_F)	 , 			KC_NO		 , QK_REP 	   , KC_DEL  	 , KC_TAB  	   , KC_ESC 	 , 
 												  KC_TRNS	  , KC_NO	 	 , 			KC_BSPC		 , MO(4))	   ,
 	
 	//Symbol
@@ -173,9 +174,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	
 	//Numpad
 	[3] = LAYOUT_split_3x5_2(
-		KC_1  		, KC_2  	  , KC_3		, KC_4  	  , KC_5	  	 , 			KC_6  		 , KC_7		   , KC_8		 , KC_9		   , KC_0	   	 , 
+		KC_NO  		, KC_NO  	  , KC_NO		, KC_NO  	  , KC_NO	  	 , 			KC_MINS  	 , KC_7		   , KC_8		 , KC_9		   , KC_0	   	 , 
 		KC_LGUI		, KC_LALT	  , KC_LSFT		, KC_LCTL	  , KC_NO	  	 , 			KC_DOT  	 , KC_4		   , KC_5		 , KC_6		   , KC_0 	   	 , 
-		KC_NO  		, KC_NO  	  , KC_BSPC  	, KC_DEL  	  , KC_NO	  	 ,			KC_NO  		 , KC_1		   , KC_2		 , KC_3		   , KC_NO	   	 ,
+		KC_NO  		, KC_NO  	  , KC_BSPC  	, KC_DEL  	  , KC_NO	  	 ,			KC_PLUS  	 , KC_1		   , KC_2		 , KC_3		   , KC_SLSH	 ,
 								 				  KC_NO       , KC_TRNS	  	 , 			KC_BSPC  	 , KC_DEL)	   ,
 	
 	//Function
@@ -186,7 +187,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 							   	   				  KC_TRNS	  , KC_NO		 , 			KC_NO		 , KC_TRNS)	   ,
 };
 
-//* Combos (Currently set up for Colemak-DH)
+//* Combos (Currently set up for Recurva)
+// Key Definitions
 // Left Hand
 const uint16_t PROGMEM combo1[] = {SS_QU, KC_U, COMBO_END}; // Q+U -> Q
 
@@ -201,12 +203,9 @@ const uint16_t PROGMEM combo8[] = {KC_V, KC_B, COMBO_END}; // V+B -> Left Brace 
 
 
 // Right Hand
-const uint16_t PROGMEM combo9[]  = {KC_G, LCTL(KC_BSPC), COMBO_END}; // Ctrl+Bkspc Key -> Backspace
 const uint16_t PROGMEM combo10[] = {KC_SLSH, KC_QUOT, COMBO_END}; // /+' -> Enter
 const uint16_t PROGMEM combo11[] = {KC_B, KC_DOT, COMBO_END}; // B+. -> Caps Word
-
 const uint16_t PROGMEM combo12[] = {KC_L, KC_SLSH, COMBO_END}; // L+/ -> Delete Bot
-// const uint16_t PROGMEM combo13[] = {KC_QUOT, KC_COMM, COMBO_END}; // '+, -> Delete Bot
 
 const uint16_t PROGMEM combo14[] = {SS_QU, KC_DOT, COMBO_END}; // Q+. -> Right Brace ]
 const uint16_t PROGMEM combo15[] = {KC_M, HOME_H, COMBO_END}; // M+H -> Right Parenthesis )
@@ -214,11 +213,7 @@ const uint16_t PROGMEM combo16[] = {KC_U, HOME_E, COMBO_END}; // U+E -> Right Cu
 const uint16_t PROGMEM combo17[] = {KC_O, HOME_A, COMBO_END}; // O+A -> Greater than >
 const uint16_t PROGMEM combo18[] = {KC_Y, HOME_I, COMBO_END}; // Y+I -> Semicolon ;
 
-// ! CURRENTLY UNUSED
-// ! ======================================================================================
-// const uint16_t PROGMEM combo17[] = {KC_DLR, KC_LPRN, COMBO_END}; //! requires US International, which breaks grave
-// ! ======================================================================================
-
+// Outcome Definitions
 combo_t key_combos[COMBO_COUNT] = {
     // Left Hand
     COMBO(combo1, KC_Q), // Q+U -> Q
@@ -234,21 +229,13 @@ combo_t key_combos[COMBO_COUNT] = {
 
 
     // Right Hand
-    COMBO(combo9, KC_BSPC), // Ctrl+Bkspc Key -> Backspace
 	COMBO(combo10, KC_ENT), // /+' -> Enter
 	COMBO(combo11, CW_TOGG), // B+. -> Caps Word
-
     COMBO(combo12, KC_DEL), // L+/ -> Delete Bot
-	// COMBO(combo13, KC_DEL), // '+, -> Delete Bot
 
     COMBO(combo14, KC_RBRC), // Q+. -> Right Brace ]
     COMBO(combo15, KC_RPRN), // M+H -> Right Parenthesis )
     COMBO(combo16, KC_RCBR), // U+E -> Right Curly Brace }
     COMBO(combo17, KC_GT), // O+A -> Greater than >
     COMBO(combo18, KC_SCLN), // Y+I -> Semicolon ;
-
-    // ! CURRENTLY UNUSED
-    // ! ======================================================================================
-    // COMBO(combo17, SS_POUND), //! requires US International, which breaks grave
-    // ! ======================================================================================
 };
