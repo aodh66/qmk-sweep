@@ -55,7 +55,9 @@ bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
         // Otherwise, tap_hold_keycode is a mod-tap key.
         uint8_t mod = mod_config(QK_MOD_TAP_GET_MODS(tap_hold_keycode));
         if ((mod & MOD_LSFT) != 0) {
-            return 50; // A shorter streak timeout for Shift mod-tap keys.
+            return 0; // A shorter streak timeout for Shift mod-tap keys.
+        } else if ((mod & MOD_RSFT) != 0) {
+            return 0; // A shorter streak timeout for Shift mod-tap keys.
         } else {
             return 120; // A longer timeout otherwise.
         }
