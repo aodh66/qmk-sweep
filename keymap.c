@@ -1,20 +1,39 @@
+// aodh66 Keyboard Layout
+
 #include QMK_KEYBOARD_H
 #include "features/achordion.h"
 
 // * -----------------------------
 // * -- Home row mods (Recurva) --
 // * -----------------------------
-// Left-hand home row mods
+// Left-hand
 #define HOME_S LGUI_T(KC_S)
 #define HOME_N LALT_T(KC_N)
 #define HOME_T LSFT_T(KC_T)
 #define HOME_C LCTL_T(KC_C)
 
-// Right-hand home row mods
+// Right-hand
 #define HOME_H RCTL_T(KC_H)
 #define HOME_E RSFT_T(KC_E)
 #define HOME_A LALT_T(KC_A)
 #define HOME_I RGUI_T(KC_I)
+
+// * ------------------
+// * -- Tapping Term --
+// * ------------------
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t* record) {
+  switch (keycode) {
+    // Increase the tapping term a little for slower ring and pinky fingers.
+    case HOME_S:
+    case HOME_N:
+    case HOME_A:
+    case HOME_I:
+      return TAPPING_TERM + 15;
+
+    default:
+      return TAPPING_TERM;
+  }
+}
 
 // * ------------------------
 // * -- Macro Declarations --
@@ -29,10 +48,10 @@ enum custom_keycodes {
 // * ---------------
 bool achordion_eager_mod(uint8_t mod) {
     switch (mod) {
-    case MOD_LSFT:
-    case MOD_RSFT:
-    case MOD_LCTL:
-    case MOD_RCTL:
+        case MOD_LSFT:
+        case MOD_RSFT:
+        case MOD_LCTL:
+        case MOD_RCTL:
             return true; // Eagerly apply Shift and Ctrl mods.
 
         default:
@@ -40,28 +59,30 @@ bool achordion_eager_mod(uint8_t mod) {
     }
 }
 
-bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record, 
-                     uint16_t other_keycode, keyrecord_t* other_record) {
-    // Otherwise, follow the opposite hands rule.
-    return achordion_opposite_hands(tap_hold_record, other_record);
+// bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
+//                      uint16_t other_keycode, keyrecord_t* other_record) {
+//     // Otherwise, follow the opposite hands rule.
+//     return achordion_opposite_hands(tap_hold_record, other_record);
+// }
+
+uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
+    return 800; // Use a timeout of 800 ms.
 }
 
-    // Typing Streak
-    uint16_t achordion_streak_timeout(uint16_t tap_hold_keycode) {
-        if (IS_QK_LAYER_TAP(tap_hold_keycode)) {
-            return 0; // Disable streak detection on layer-tap keys.
-        }
-
-        // Otherwise, tap_hold_keycode is a mod-tap key.
-        uint8_t mod = mod_config(QK_MOD_TAP_GET_MODS(tap_hold_keycode));
-        if ((mod & MOD_LSFT) != 0) {
-            return 0; // A shorter streak timeout for Shift mod-tap keys.
-        } else if ((mod & MOD_RSFT) != 0) {
-            return 0; // A shorter streak timeout for Shift mod-tap keys.
-        } else {
-            return 120; // A longer timeout otherwise.
-        }
+// Typing Streak
+uint16_t achordion_streak_timeout(uint16_t tap_hold_keycode) {
+    if (IS_QK_LAYER_TAP(tap_hold_keycode)) {
+        return 0; // Disable streak detection on layer-tap keys.
     }
+
+    // Otherwise, tap_hold_keycode is a mod-tap key.
+    uint8_t mod = mod_config(QK_MOD_TAP_GET_MODS(tap_hold_keycode));
+    if ((mod & MOD_LSFT) != 0) {
+    return 0;  // Disable for Shift mod-tap keys.
+  } else {
+    return 100;
+  }
+}
 
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     if (!process_achordion(keycode, record)) {
@@ -157,6 +178,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Key Definitions
 // Left Hand
 const uint16_t PROGMEM combo1[] = {SS_QU, KC_U, COMBO_END}; // Q+U -> Q
+const uint16_t PROGMEM combo17[] = {SS_QU, KC_M, COMBO_END}; // Q+M -> Q
 
 const uint16_t PROGMEM combo2[] = {KC_K, KC_G, COMBO_END}; // K+G -> ESC
 const uint16_t PROGMEM combo3[] = {KC_X, KC_K, COMBO_END}; // X+K -> Tab
@@ -182,6 +204,7 @@ const uint16_t PROGMEM combo16[] = {KC_Y, HOME_I, COMBO_END};  // Y+I -> Semicol
 combo_t key_combos[COMBO_COUNT] = {
     // Left Hand
     COMBO(combo1, KC_Q), // Q+U -> Q
+    COMBO(combo17, KC_Q), // Q+M -> Q
 
     COMBO(combo2, KC_ESC), // K+G -> ESC
     COMBO(combo3, KC_TAB), // X+K -> Tab
