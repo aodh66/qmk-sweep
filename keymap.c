@@ -41,6 +41,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t* record) {
 enum custom_keycodes {
     // EMAIL = SAFE_RANGE,
     SS_QU = SAFE_RANGE,
+    BRACES,
 };
 
 // * ---------------
@@ -89,6 +90,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
         return false;
     }
 
+    // ! Might be in wrong place
+    const uint8_t mods         = get_mods();
+    const uint8_t oneshot_mods = get_oneshot_mods();
+
     switch (keycode) {
             // * Macros
             // case EMAIL:
@@ -102,6 +107,22 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
                 SEND_STRING("qu");
             }
             break;
+
+        case BRACES: // Types [], {}, or <> and puts cursor between braces.
+            if (record->event.pressed) {
+                clear_oneshot_mods(); // Temporarily disable mods.
+                unregister_mods(MOD_MASK_CSAG);
+                if ((mods | oneshot_mods) & MOD_MASK_SHIFT) {
+                    SEND_STRING("{}");
+                } else if ((mods | oneshot_mods) & MOD_MASK_CTRL) {
+                    SEND_STRING("<>");
+                } else {
+                    SEND_STRING("()");
+                }
+                tap_code(KC_LEFT);   // Move cursor between braces.
+                register_mods(mods); // Restore mods.
+            }
+            return false;
     }
 
     // ! CURRENTLY UNUSED
@@ -145,9 +166,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     // Nav/Ext
     [1] = LAYOUT_split_3x5_2(
-        KC_ESC, KC_TAB, CW_TOGG, KC_CAPS, KC_HYPR,                          KC_PGUP, KC_HOME, KC_NO, KC_END, KC_DEL, 
+        KC_ESC, KC_TAB, CW_TOGG, KC_CAPS, KC_HYPR,                          KC_PGUP, KC_HOME, BRACES, KC_END, KC_DEL, 
         KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, KC_MEH,                         KC_PGDN, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, 
-        LCTL(KC_Z), LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), LCTL(KC_F),         KC_NO, QK_REP, KC_DEL, KC_TAB, KC_ESC, 
+        LCTL(KC_Z), LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), LCTL(KC_F),         QK_REP, KC_DEL, KC_NO, KC_TAB, KC_ESC, 
         KC_TRNS, KC_NO,                                                     KC_BSPC, MO(4)),
 
     // Symbol
@@ -159,7 +180,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     // Numpad
     [3] = LAYOUT_split_3x5_2(
-        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                                  KC_MINS, KC_7, KC_8, KC_9, KC_0, 
+        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                                  KC_MINS, KC_7, KC_8, KC_9, KC_NO, 
         KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, KC_NO,                          KC_DOT, KC_4, KC_5, KC_6, KC_0, 
         KC_NO, KC_NO, KC_BSPC, KC_DEL, KC_NO,                               KC_PLUS, KC_1, KC_2, KC_3, KC_SLSH, 
         KC_NO, KC_TRNS,                                                     KC_BSPC, KC_DEL),
