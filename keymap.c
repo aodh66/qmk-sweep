@@ -223,7 +223,7 @@ const uint16_t PROGMEM combo3[] = {HOME_X, HOME_K, COMBO_END}; // X+K -> Tab
 // const uint16_t PROGMEM combo8[] = {KC_V, KC_B, COMBO_END};   // V+B -> Left Brace [
 
 // Right Hand
-const uint16_t PROGMEM combo9[] = {KC_SLSH, KC_QUOT, COMBO_END}; // /+' -> Enter
+const uint16_t PROGMEM combo9[] = {HOME_SLSH, HOME_QUOT, COMBO_END}; // /+' -> Enter
 const uint16_t PROGMEM combo10[] = {HOME_G, HOME_L, COMBO_END};     // G+L -> Caps Word
 const uint16_t PROGMEM combo11[] = {HOME_L, HOME_SLSH, COMBO_END};    // L+/ -> Delete Bot
 
