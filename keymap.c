@@ -49,7 +49,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t* record) {
 // * -- Macro Declarations --
 // * ------------------------
 enum custom_keycodes {
-    // EMAIL = SAFE_RANGE,
     SS_QU = SAFE_RANGE,
     BRACES,
 };
@@ -106,12 +105,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
 
     switch (keycode) {
             // * Macros
-            // case EMAIL:
-            // if (record->event.pressed) {
-            //     SEND_STRING("aodhan66@gmail.com");
-            // }
-            // break;
-
         case SS_QU:
             if (record->event.pressed) {
                 SEND_STRING("qu");
